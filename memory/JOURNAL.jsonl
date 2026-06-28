@@ -1,0 +1,1 @@
+{"ts":"2026-06-12T18:36:24.566Z","tags":["session-end","project-state"],"text":"完成了项目重构：个人主页 + 数学百科迁入 /math/ 子目录 + 探索页 + 侧边栏结构调整 + 数学基础内容重写 + BackButton 组件 + 删除 editLink 和 outline + GitHub Actions 自动部署配置。当前 dev 服务器运行在 localhost:5173。"}

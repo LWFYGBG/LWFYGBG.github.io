@@ -1,0 +1,14 @@
+{
+  "name": "lwfygbb-knowledge-base",
+  "version": "1.0.0",
+  "description": "LWFYGBG 个人知识百科站点 — 数学、物理与编程",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "vitepress": "^1.6.0"
+  }
+}

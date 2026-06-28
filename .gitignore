@@ -1,0 +1,23 @@
+node_modules/
+node/
+docs/.vitepress/dist
+docs/.vitepress/cache
+*.txt
+*.bat
+*.ps1
+*.mjs
+node-v*.msi
+package-lock.json
+.DS_Store
+Thumbs.db
+.claude/
+.vitepress/dist/
+.vitepress/cache/
+
+# 构建产物（GitHub Actions 自动生成）
+docs/.vitepress/dist/
+docs/assets/
+docs/404.html
+docs/hashmap.json
+docs/vp-icons.css
+docs/.nojekyll

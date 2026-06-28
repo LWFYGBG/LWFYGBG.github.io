@@ -1,0 +1,4 @@
+# Cloudflare Pages 重定向规则
+# 当文档在 .vitepress/dist 子目录时，确保路径正确
+
+/docs/* /:splat 301
