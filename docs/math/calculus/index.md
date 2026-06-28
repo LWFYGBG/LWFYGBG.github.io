@@ -8,10 +8,10 @@
 
 ### 映射与函数（给我干哪来了，这还是极限吗？）
 
-- [映射](./mapping)
-- [函数](./function)
-- [函数的性质](./function-properties)
-- [基本初等函数、初等函数、非初等函数](./elementary-functions)
+- [映射](./mapping/mapping)
+- [函数](./mapping/function)
+- [函数的性质](./mapping/function-properties)
+- [基本初等函数、初等函数、非初等函数](./mapping/elementary-functions)
 
 ### 极限
 
