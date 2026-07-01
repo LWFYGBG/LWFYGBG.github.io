@@ -11,48 +11,15 @@
   --vp-home-hero-image-filter: blur(68px);
 }
 
-/* 内容区域右扩 */
-:root {
-  --vp-layout-max-width: 2000px !important;
-  --vp-content-width: 1600px !important;
-}
-
-.VPContent {
-  max-width: 2000px !important;
-}
-
-.VPContent.has-sidebar {
-  display: flex !important;
-  flex-direction: row !important;
-}
-
 .VPSidebar {
-  flex-shrink: 0 !important;
+  border-right: 2px solid var(--vp-c-divider);
 }
 
-.VPDoc {
-  max-width: 1600px !important;
-  width: 100% !important;
-  flex: 1 1 auto !important;
-  min-width: 0 !important;
-}
-
-.vp-doc {
-  max-width: 1600px !important;
-  width: 100% !important;
-}
-
-.content-container {
-  max-width: 1600px !important;
-}
-
-/* 首页英雄区副标题 */
 .VPHero .tagline {
   font-size: 1.3rem;
   opacity: 0.8;
 }
 
-/* ===== 分类卡片网格 ===== */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -99,13 +66,11 @@
   opacity: 0.75;
 }
 
-/* ===== 数学公式增强 ===== */
 .math {
   overflow-x: auto;
   overflow-y: hidden;
 }
 
-/* ===== 首页底部装饰 ===== */
 .home-footer {
   text-align: center;
   padding: 2rem 0;
@@ -115,21 +80,16 @@
   opacity: 0.6;
 }
 
-/* ===== 响应式调整 ===== */
 @media (max-width: 640px) {
   .category-grid {
     grid-template-columns: 1fr;
   }
 }
 
-/* ===== 自定义块样式 ===== */
 .custom-block-title {
   font-size: 1rem;
 }
 
-/* ===== 侧边栏样式 ===== */
-
-/* 侧边栏分组标题 - 直接开干微积分 */
 .vp-sidebar-group > .title,
 .vp-sidebar-group > button {
   font-weight: 700;
@@ -137,7 +97,6 @@
   font-size: 1rem;
 }
 
-/* ===== 表格样式 ===== */
 .vp-doc table {
   width: 100%;
   display: table;

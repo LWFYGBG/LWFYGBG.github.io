@@ -65,7 +65,7 @@ $$
 $$
 a_n \to A \quad (n \to \infty)
 $$
-如果一个数列存在极限，那么这个数列称为收敛的，或者说它收敛到极限A.
+如果一个数列存在极限，那么这个数列称为收敛的，或者说它收敛到极限A，如果不存在极限，那么这个数列称为发散的。
 ::: tip 解读
 以上的定义方法称为**ε-N 定义**，它是微积分严格化定义的基石，它用简单的数学语言描述了达到极限的过程：对于一个任意要求的精度$\varepsilon$ ，我都能找到一个$N$，从那之后所有的项与极限的差值都满足这一精度要求，由于精度可以无限精确，也就是数列的项可以无限接近极限。
 :::
@@ -108,7 +108,7 @@ $$
 $$
 T = \sum_{n=1}^{ \infty} t_n = \frac{1}{1-q} = \frac{1}{1-\frac{1}{10}} = \frac{10}{9} \text{秒}
 $$
-因此阿喀琉斯必然可以追上乌龟，且时间不超过1秒，符合我们直观上的结论。
+因此阿喀琉斯必然可以追上乌龟，且时间为1.1秒，符合我们直观上的结论。
 ::: tip 注意
 这个例子的计算过程中，我们只求了 $\lim\limits_{n \to \infty}q^n$ 而不是 $\lim\limits_{n \to \infty}S_n$ ，这是因为其余的部分不涉及极限过程，属于常数，这可以理解为数列极限的一个性质，即如果一个数列相当于另一个数列乘上一个非0的常数，那么二者的极限也是这个关系。
 :::
@@ -117,7 +117,8 @@ $$
 ### 性质 1：唯一性
 
 **内容**：若数列 $\{a_n\}$ 收敛，则极限值唯一。
-
+::: tip 这一点很容易理解，既然是极限，那就肯定是唯一的，否则其中一个极限的条件必然会包含另一个极限的条件，也就是说另一个极限实际上并不是真正的极限。
+:::
 **证明**（反证法）：假设 $\{a_n\}$ 有两个不同的极限 $A$ 和 $B$（$A \neq B$）。取 $\varepsilon = \frac{|A-B|}{3} > 0$。
 
 由收敛定义：
@@ -133,7 +134,8 @@ $$
 ### 性质 2：有界性
 
 **内容**：若数列 $\{a_n\}$ 收敛，则 $\{a_n\}$ 一定有界。
-
+::: tip 直观上肯定是这样，简要证明可以使用逆否命题，若无界则必然发散，使用定义证明是显然的。
+:::
 **证明**：设 $\lim\limits_{n \to \infty} a_n = A$。取 $\varepsilon = 1$，则存在 $N$，当 $n > N$ 时：
 $$
 |a_n - A| < 1 \Rightarrow |a_n| < |A| + 1
@@ -143,8 +145,10 @@ $$
 
 ### 性质 3：保号性
 
-**内容**：若 $\lim_{n \to \infty} a_n = A$ 且 $A > 0$，则存在 $N$，当 $n > N$ 时 $a_n > 0$。
-
+**内容**：若 $\lim\limits_{n \to \infty} a_n = A$ 且 $A > 0$，则存在 $N$，当 $n > N$ 时 $a_n > 0$。
+::: tip 保号性是体现高等数学的高等性的第一个性质，因为它真正在反应n趋近于无穷大时数列的行为。
+具体来讲，可以设想这样一个数列，它的值在n很小的时候以很大的幅度波动，波动的中心是极限值A，那么在肉眼可见的范围内，数列的项都可以既有正数也有负数，但是只要其极限值大于0，那么为了让它收敛到A，那么数列在趋近无穷大时的项必然都在A附近，自然也就大于0.
+:::
 **证明**：取 $\varepsilon = \frac{A}{2} > 0$，则存在 $N$，当 $n > N$ 时：
 $$
 |a_n - A| < \frac{A}{2} \Rightarrow A - \frac{A}{2} < a_n < A + \frac{A}{2} \Rightarrow a_n > \frac{A}{2} > 0
@@ -154,8 +158,9 @@ $$
 
 ### 性质 4：保不等式性
 
-**内容**：若 $\lim_{n \to \infty} a_n = A$，$\lim_{n \to \infty} b_n = B$，且存在 $N_0$，当 $n > N_0$ 时 $a_n \leq b_n$，则 $A \leq B$。
-
+**内容**：若 $\lim\limits_{n \to \infty} a_n = A$，$\lim\limits_{n \to \infty} b_n = B$，且存在 $N_0$，当 $n > N_0$ 时 $a_n \leq b_n$，则 $A \leq B$。
+::: tip 保不等式性的原理是一样的，为了收敛，数列的项必然要去靠近极限值，那么在趋近于无穷的时候，如果项满足不等式关系，极限值也就一定满足。
+:::
 **证明**（反证法）：假设 $A > B$。取 $\varepsilon = \frac{A-B}{2} > 0$。
 
 由收敛定义：
@@ -171,39 +176,32 @@ $$
 ### 性质 5：子列收敛性
 
 **内容**：若数列 $\{a_n\}$ 收敛于 $A$，则其任意子列 $\{a_{n_k}\}$ 也收敛于 $A$。
-
-**证明**：设 $\lim_{n \to \infty} a_n = A$。对任意 $\varepsilon > 0$，存在 $N$，当 $n > N$ 时 $|a_n - A| < \varepsilon$。
+::: tip 这里的子数列必须有无穷多项，则必然包含原数列在n趋近于无穷大时的项，因此必然也收敛，下面的证明也是这个思路。
+:::
+**证明**：设 $\lim\limits_{n \to \infty} a_n = A$。对任意 $\varepsilon > 0$，存在 $N$，当 $n > N$ 时 $|a_n - A| < \varepsilon$。
 
 由于子列下标 $n_k \geq k$，取 $K = N$，当 $k > K$ 时：
 $$
 n_k > k > K = N \Rightarrow |a_{n_k} - A| < \varepsilon
 $$
-因此 $\lim_{k \to \infty} a_{n_k} = A$。
+因此 $\lim\limits_{k \to \infty} a_{n_k} = A$。
 
 ### 性质 6：四则运算性质
 
-若 $\lim_{n \to \infty} a_n = A$，$\lim_{n \to \infty} b_n = B$，则：
+若 $\lim\limits_{n \to \infty} a_n = A$，$\lim\limits_{n \to \infty} b_n = B$，则：
 
-1. **加法**：$\lim_{n \to \infty} (a_n + b_n) = A + B$
-2. **减法**：$\lim_{n \to \infty} (a_n - b_n) = A - B$
-3. **乘法**：$\lim_{n \to \infty} (a_n \cdot b_n) = A \cdot B$
-4. **除法**：若 $B \neq 0$，则 $\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}$
-
-**加法证明**：对任意 $\varepsilon > 0$，取 $\varepsilon' = \frac{\varepsilon}{2}$。
-
-由收敛定义：
-- 存在 $N_1$，当 $n > N_1$ 时，$|a_n - A| < \varepsilon'$
-- 存在 $N_2$，当 $n > N_2$ 时，$|b_n - B| < \varepsilon'$
-
-取 $N = \max\{N_1, N_2\}$，当 $n > N$ 时：
-$$
-|(a_n + b_n) - (A+B)| = |(a_n-A) + (b_n-B)| \leq |a_n-A| + |b_n-B| < 2\varepsilon' = \varepsilon
-$$
+1. **加法**：$\lim\limits_{n \to \infty} (a_n + b_n) = A + B$
+2. **减法**：$\lim\limits_{n \to \infty} (a_n - b_n) = A - B$
+3. **乘法**：$\lim\limits_{n \to \infty} (a_n \cdot b_n) = A \cdot B$
+4. **除法**：若 $B \neq 0$，则 $\lim\limits_{n \to \infty} \frac{a_n}{b_n} = \frac{A}{B}$
+::: tip 四则运算性质是极限最常用到的性质，但其证明十分繁琐，感兴趣的读者可以查阅课本上的证明。
+:::
 
 ### 性质 7：夹逼准则（迫敛性）
 
-**内容**：若存在 $N_0$，当 $n > N_0$ 时 $a_n \leq c_n \leq b_n$，且 $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n = A$，则 $\lim_{n \to \infty} c_n = A$。
-
+**内容**：若存在 $N_0$，当 $n > N_0$ 时 $a_n \leq c_n \leq b_n$，且 $\lim\limits_{n \to \infty} a_n = \lim\limits_{n \to \infty} b_n = A$，则 $\lim\limits_{n \to \infty} c_n = A$。
+::: tip 全体起立！这是极限中最为有名也有用的一个性质，它看起来是显然的，但在很多极限问题中，都需要使用这个性质。
+:::
 **证明**：对任意 $\varepsilon > 0$，由收敛定义：
 - 存在 $N_1$，当 $n > N_1$ 时，$|a_n - A| < \varepsilon$，即 $A - \varepsilon < a_n$
 - 存在 $N_2$，当 $n > N_2$ 时，$|b_n - A| < \varepsilon$，即 $b_n < A + \varepsilon$
@@ -212,13 +210,130 @@ $$
 $$
 A - \varepsilon < a_n \leq c_n \leq b_n < A + \varepsilon \Rightarrow |c_n - A| < \varepsilon
 $$
-因此 $\lim_{n \to \infty} c_n = A$。
+因此 $\lim\limits_{n \to \infty} c_n = A$。
 
-## 一个重要的极限
+## 数列极限审敛方法
 
-$\left(1 + \dfrac{1}{n}\right)^n=e$ 
+### 方法 1：单调有界准则
+
+**内容**：单调递增且有上界的数列必收敛；单调递减且有下界的数列必收敛。
+
+::: tip 这个准则的直观理解是显然的，一个数列如果一直变大但是不能超过某个数，那么它必然会收敛到这个数附近，这个数也就是它的上确界。
+:::
+
+**证明**（以单调递增有上界为例）：设 $\{a_n\}$ 单调递增且有上界，由确界原理，存在上确界 $A$。
+
+对任意 $\varepsilon > 0$，由于 $A$ 是上确界，存在 $N$，使得 $a_N > A - \varepsilon$。
+
+又因为 $\{a_n\}$ 单调递增，当 $n > N$ 时：
+$$
+A - \varepsilon < a_N \leq a_n \leq A < A + \varepsilon
+$$
+即 $|a_n - A| < \varepsilon$，因此 $\lim\limits_{n \to \infty} a_n = A$。
+
+### 方法 2：柯西收敛准则（柯西审敛原理）
+
+**内容**：数列 $\{a_n\}$ 收敛的充要条件是：对任意 $\varepsilon > 0$，存在 $N$，当 $m, n > N$ 时，恒有 $|a_m - a_n| < \varepsilon$。
+
+::: tip 柯西收敛准则的意义在于，它只依赖数列自身的项，而不需要知道极限值。直观上，收敛数列的项在n很大时应该"靠得很近"。
+:::
+
+**证明**（必要性）：设 $\lim\limits_{n \to \infty} a_n = A$。对任意 $\varepsilon > 0$，取 $\varepsilon' = \frac{\varepsilon}{2}$，存在 $N$，当 $n > N$ 时 $|a_n - A| < \varepsilon'$。
+
+当 $m, n > N$ 时：
+$$
+|a_m - a_n| = |(a_m - A) + (A - a_n)| \leq |a_m - A| + |a_n - A| < 2\varepsilon' = \varepsilon
+$$
+
+### 方法 4：比值判别法（达朗贝尔判别法）
+
+**内容**：设 $\{a_n\}$ 为正项数列，若 $\lim\limits_{n \to \infty} \frac{a_{n+1}}{a_n} = L$，则：
+
+1. 当 $L < 1$ 时，数列 $\{a_n\}$ 收敛于 0
+2. 当 $L > 1$ 时，数列 $\{a_n\}$ 发散到 $\infty$
+3. 当 $L = 1$ 时，判别法失效
+
+### 方法 5：根值判别法（柯西判别法）
+
+**内容**：设 $\{a_n\}$ 为非负数列，若 $\lim\limits_{n \to \infty} \sqrt[n]{a_n} = L$，则：
+
+1. 当 $L < 1$ 时，数列 $\{a_n\}$ 收敛于 0
+2. 当 $L > 1$ 时，数列 $\{a_n\}$ 发散到 $\infty$
+3. 当 $L = 1$ 时，判别法失效
+
+## （第二）重要极限
+
+$\lim\limits_{n \to \infty} \left(1 + \dfrac{1}{n}\right)^n = e$
+
+### 极限的证明
+
+**证明**：设 $a_n = \left(1 + \frac{1}{n}\right)^n$，我们证明 $\{a_n\}$ 单调递增且有上界。
+
+由二项式定理：
+$$
+\begin{align*}
+a_n &= \sum_{k=0}^{n} \binom{n}{k} \cdot \frac{1}{n^k} \\
+&= 1 + \sum_{k=1}^{n} \frac{n(n-1)\cdots(n-k+1)}{k! \cdot n^k} \\
+&= 1 + \sum_{k=1}^{n} \frac{1}{k!} \cdot \left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right)\cdots\left(1 - \frac{k-1}{n}\right)
+\end{align*}
+$$
+
+同理：
+$$
+a_{n+1} = 1 + \sum_{k=1}^{n+1} \frac{1}{k!} \cdot \left(1 - \frac{1}{n+1}\right)\left(1 - \frac{2}{n+1}\right)\cdots\left(1 - \frac{k-1}{n+1}\right)
+$$
+
+比较 $a_n$ 和 $a_{n+1}$：
+- $a_{n+1}$ 的项数比 $a_n$ 多一项（$k=n+1$），且该项为正
+- 对于相同的 $k$，$a_{n+1}$ 中每个因子 $\left(1 - \frac{i}{n+1}\right) > \left(1 - \frac{i}{n}\right)$
+
+因此 $a_n < a_{n+1}$，即 $\{a_n\}$ 单调递增。
+
+再证明 $\{a_n\}$ 有上界：
+$$
+\begin{align*}
+a_n &= 1 + \sum_{k=1}^{n} \frac{1}{k!} \cdot \left(1 - \frac{1}{n}\right)\cdots\left(1 - \frac{k-1}{n}\right) \\
+&< 1 + \sum_{k=1}^{n} \frac{1}{k!} \\
+&< 1 + \sum_{k=1}^{n} \frac{1}{2^{k-1}} \\
+&= 1 + \frac{1 - \frac{1}{2^n}}{1 - \frac{1}{2}} \\
+&= 3 - \frac{1}{2^{n-1}} < 3
+\end{align*}
+$$
+
+由单调有界准则，$\{a_n\}$ 收敛，记极限为 $e$，即：
+$$
+\lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = e
+$$
+
+### 常数 e 的意义
+
+$e$ 是自然对数的底数，是一个无理数，其近似值为：
+$$
+e \approx 2.718281828459045\cdots
+$$
+
+$e$ 在数学中具有重要地位：
+- 自然对数 $\ln x = \log_e x$
+- 指数函数 $e^x$ 的导数等于自身
+- 复利计算的极限形式
+
+### 重要变形
+
+1. **连续变量形式**：
+$$
+\lim_{x \to \infty} \left(1 + \frac{1}{x}\right)^x = e
+$$
+
+2. **另一种形式**：
+$$
+\lim_{x \to 0} (1 + x)^{\frac{1}{x}} = e
+$$
+
+3. **一般形式**：
+$$
+\lim_{n \to \infty} \left(1 + \frac{k}{n}\right)^n = e^k
+$$
 
 ## 思考
 
-- 发散数列是什么样的？
-- 数列收敛与发散的判断方法有哪些？
+
